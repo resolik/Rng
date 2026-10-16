@@ -7,9 +7,6 @@ on:
 
 jobs:
   build:
-    # ubuntu-20.04, не ubuntu-latest — Buildozer тянет за собой Android
-    # NDK/SDK, который на свежих Ubuntu (22.04/24.04) часто не собирается
-    # из-за несовместимости системного Python/openssl с этим тулчейном.
     runs-on: ubuntu-22.04
 
     steps:
@@ -27,7 +24,7 @@ jobs:
           sudo apt-get install -y \
             git zip unzip openjdk-17-jdk python3-pip autoconf libtool pkg-config \
             zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake \
-            libffi-dev libssl-dev build-essential ccache
+            libffi-dev libssl-dev build-essential ccache libltdl-dev libltdl7
 
       - name: Install Buildozer and Cython
         run: |
